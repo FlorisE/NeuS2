@@ -839,7 +839,7 @@ __global__ void generate_nerf_network_inputs_from_positions(const uint32_t n_ele
 	const uint32_t i = threadIdx.x + blockIdx.x * blockDim.x;
 	if (i >= n_elements) return;
 
-	Vector3f dir=(normals[i]).normalized(); // choose outward pointing directions, for want of a better choice
+	Vector3f dir=(normals[i]).normalized();
 	network_input(i)->set_with_optional_extra_dims(warp_position(pos[i], aabb), warp_direction(dir), warp_dt(MIN_CONE_STEPSIZE()), extra_dims, network_input.stride_in_bytes);
 }
 

@@ -72,6 +72,7 @@ struct NerfDataset {
 
 	std::vector<TrainingImageMetadata> metadata;
 	std::vector<TrainingXForm> xforms;
+	std::vector<std::string> paths;
 	tcnn::GPUMemory<float> sharpness_data;
 	Eigen::Vector2i sharpness_resolution = {0, 0};
 	tcnn::GPUMemory<float> envmap_data;
